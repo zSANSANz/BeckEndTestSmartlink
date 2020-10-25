@@ -8,6 +8,9 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
+
+const swaggerUi = require('swagger-ui-express'),
+  swaggerDocument = require('./swagger.json');
 // define a root route
 app.get('/', (req, res) => {
   res.send("Hello World");
@@ -15,8 +18,12 @@ app.get('/', (req, res) => {
 // Require register routes
 const registerRoutes = require('./src/routes/register.routes')
 // using as middleware
-app.use('/api/v1/register', registerRoutes)
+app.use('/register', registerRoutes)
 // listen for requests
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
