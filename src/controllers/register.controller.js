@@ -18,7 +18,8 @@ exports.create = function (req, res) {
         Register.create(new_register, function (err, register) {
             if (err)
                 res.send(err);
-            res.json({ error: false, message: "register added successfully!", data: register });
+            res.json({ code: 200, status: "success", message: "berhasil terdaftar" });
+            
         });
     }
 };

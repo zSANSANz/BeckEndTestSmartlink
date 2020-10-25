@@ -2,8 +2,8 @@
     "swagger": "2.0",
     "info": {
         "version": "1.0.0",
-        "title": "My User Project CRUD",
-        "description": "My User Project Application API",
+        "title": "BeckEnd Test Smartlink",
+        "description": "My BeckEnd Test While Apllied a Job for BeckEnd Developer on Smartlink",
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
@@ -12,7 +12,7 @@
     "host": "localhost:5000",
     "basePath": "/",
     "tags": [{
-        "name": "Users",
+        "name": "Register",
         "description": "API for Register in the system"
     }],
     "schemes": [
@@ -24,6 +24,9 @@
     "produces": [
         "application/json"
     ],
+
+
+
     "paths": {
         "/register": {
             "get": {
@@ -42,6 +45,7 @@
             }
         }
     },
+
     "definitions": {
         "Register": {
             "required": [
@@ -87,5 +91,58 @@
             "type": "array",
             "$ref": "#/definitions/Register"
         }
+    },
+
+
+
+
+    "paths": {
+        "/register": {
+            "get": {
+                "tags": [
+                    "Register"
+                ],
+                "summary": "Get all register in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Register"
+                        }
+                    }
+                }
+            }
+        },
+        "/Register": {
+            "post": {
+                "tags": [
+                    "Register"
+                ],
+                "description": "Create new register in system",
+                "parameters": [{
+                    "name": "register",
+                    "in": "body",
+                    "description": "User that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
+
+
 }

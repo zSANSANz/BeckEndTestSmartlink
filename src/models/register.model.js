@@ -6,8 +6,8 @@ var Register = function (register) {
   this.username = register.username;
   this.password = register.password;
   this.telepon = register.telepon;
-  this.created_at = new Date();
-  this.updated_at = new Date();
+  this.createdAt = new Date();
+  this.updatedAt = new Date();
 };
 Register.create = function (newEmp, result) {
   dbConn.query("INSERT INTO registers set ?", newEmp, function (err, res) {
