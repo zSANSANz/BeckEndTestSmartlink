@@ -15,8 +15,11 @@ exports.login = function (req, res) {
             })
         } else {
             if (results.length > 0) {
+
                 if (password == results[0].password) {
-                    var token = jwt.sign({ id: results[0].id, nama: results[0].nama }, "1");
+                    var token = jwt.sign({ id: results[0].id, nama: results[0].nama }, "secret",     {
+                        expiresIn: 5000
+                    });
                     res.send({
                         code: 200,
                         status: "success",
@@ -28,6 +31,7 @@ exports.login = function (req, res) {
                         }
                     })
                 }
+
                 else {
                     res.send({
                         "code": 204,

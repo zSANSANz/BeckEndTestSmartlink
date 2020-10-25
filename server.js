@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const app = express();
 // Setup server port
 const port = process.env.PORT || 5000;
+
+process.env.SECRET_KEY="thisismysecretkey";
+
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
