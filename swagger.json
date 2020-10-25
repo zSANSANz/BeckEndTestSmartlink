@@ -99,6 +99,34 @@
                     }
                 }
             }
+        },
+
+        "/layanan": {
+            "post": {
+                "tags": [
+                    "Layanan"
+                ],
+                "description": "Layanan in system",
+                "parameters": [{
+                    "name": "Layanan",
+                    "in": "body",
+                    "description": "Layanan for the system",
+                    "schema": {
+                        "$ref": "#/definitions/Layanan"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Layanan apllied",
+                        "schema": {
+                            "$ref": "#/definitions/Layanan"
+                        }
+                    }
+                }
+            }
         }
 
     }

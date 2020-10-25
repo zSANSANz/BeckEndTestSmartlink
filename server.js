@@ -18,9 +18,11 @@ app.get('/', (req, res) => {
 // Require register routes
 const registerRoutes = require('./src/routes/register.routes')
 const loginRoutes = require('./src/routes/login.routes')
+const layananRoutes = require('./src/routes/layanan.routes')
 // using as middleware
 app.use('/register', registerRoutes)
 app.use('/login', loginRoutes)
+app.use('/layanan', layananRoutes)
 // listen for requests
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
