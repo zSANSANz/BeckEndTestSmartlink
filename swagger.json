@@ -27,72 +27,6 @@
 
 
 
-    "paths": {
-        "/register": {
-            "get": {
-                "tags": [
-                    "Register"
-                ],
-                "summary": "Get all register in system",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Register"
-                        }
-                    }
-                }
-            }
-        }
-    },
-
-    "definitions": {
-        "Register": {
-            "required": [
-                "nama",
-                "username",
-                "password",
-                "telepon"
-            ],
-            "properties": {
-                "_id": {
-                    "type": "integer",
-                    "uniqueItems": true
-                },
-                "isPublic": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "books": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "name": {
-                                "type": "string"
-                            },
-                            "amount": {
-                                "type": "number"
-                            }
-                        }
-                    }
-                },
-                "companies": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "Register": {
-            "type": "array",
-            "$ref": "#/definitions/Register"
-        }
-    },
-
 
 
 
@@ -111,9 +45,7 @@
                         }
                     }
                 }
-            }
-        },
-        "/Register": {
+            },
             "post": {
                 "tags": [
                     "Register"
@@ -122,9 +54,9 @@
                 "parameters": [{
                     "name": "register",
                     "in": "body",
-                    "description": "User that we want to create",
+                    "description": "Register that we want to create",
                     "schema": {
-                        "$ref": "#/definitions/User"
+                        "$ref": "#/definitions/Register"
                     }
                 }],
                 "produces": [
@@ -132,15 +64,45 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "New user is created",
+                        "description": "New Register is created",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/Register"
+                        }
+                    }
+                }
+            }
+        },
+
+        "/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "description": "Login in system",
+                "parameters": [{
+                    "name": "login",
+                    "in": "body",
+                    "description": "Login for the system",
+                    "schema": {
+                        "$ref": "#/definitions/Login"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login apllied",
+                        "schema": {
+                            "$ref": "#/definitions/Login"
                         }
                     }
                 }
             }
         }
+
     }
+
 
 
 

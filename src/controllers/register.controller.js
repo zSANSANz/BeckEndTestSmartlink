@@ -48,3 +48,4 @@ exports.delete = function (req, res) {
         res.json({ error: false, message: 'Register successfully deleted' });
     });
 };
+

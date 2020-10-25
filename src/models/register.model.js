@@ -65,4 +65,5 @@ Register.delete = function (id, result) {
     }
   });
 };
+
 module.exports = Register;
