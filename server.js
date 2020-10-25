@@ -10,8 +10,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 // define a root route
 app.get('/', (req, res) => {
-  res.send("Hello World Nodemon");
+  res.send("Hello World");
 });
+// Require register routes
+const registerRoutes = require('./src/routes/register.routes')
+// using as middleware
+app.use('/api/v1/register', registerRoutes)
 // listen for requests
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
