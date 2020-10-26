@@ -17,8 +17,8 @@ exports.login = function (req, res) {
             if (results.length > 0) {
 
                 if (password == results[0].password) {
-                    var token = jwt.sign({ id: results[0].id, nama: results[0].nama }, "secret",     {
-                        expiresIn: 5000
+                    let token = jwt.sign({ id: results[0].id, nama: results[0].nama }, "secret",     {
+                        expiresIn: "24h"
                     });
                     res.send({
                         code: 200,
