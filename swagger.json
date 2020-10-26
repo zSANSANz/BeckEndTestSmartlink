@@ -150,6 +150,49 @@
                     "Token": []
                 }]
             }
+        },
+
+        "/transaksi": {
+            "post": {
+                "tags": [
+                    "Transaksi"
+                ],
+                "description": "Transaksi in system",
+                "parameters": [{
+                    "name": "Transaksi",
+                    "in": "body",
+                    "description": "Transaksi for the system",
+                    "schema": {
+                        "$ref": "#/definitions/Transaksi"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaksi apllied",
+                        "schema": {
+                            "$ref": "#/definitions/Transaksi"
+                        }
+                    }
+                },
+                "securityDefinitions": {
+                    "JWT": {
+                        "type": "apiKey",
+                        "in": "query",
+                        "name": "access_token"
+                    }
+                },
+                "responses": {
+                    "UnauthorizedError": {
+                        "description": "Access token is missing or invalid"
+                    }
+                },
+                "security": [{
+                    "Token": []
+                }]
+            }
         }
 
     }
